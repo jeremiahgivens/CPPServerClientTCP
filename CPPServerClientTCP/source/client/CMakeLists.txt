@@ -1,0 +1,10 @@
+set(Boost_USE_STATIC_LIBS OFF) 
+set(Boost_USE_MULTITHREADED ON)  
+set(Boost_USE_STATIC_RUNTIME OFF) 
+FIND_PACKAGE(Boost REQUIRED COMPONENTS system)
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS}) 
+    add_executable(clientMain source/main.cpp) 
+    target_link_libraries(clientMain ${Boost_LIBRARIES})
+endif()
